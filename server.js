@@ -15,8 +15,9 @@ mongoose.connect(process.env.MONGO_URI)
 // ✅ Schema
 const formSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true },
-  message: { type: String, required: true }
+  studentClass: { type: String, required: true },
+  parentEmail: { type: String, required: true },
+  parentMobile: { type: String, required: true }
 });
 
 const Form = mongoose.model("Form", formSchema);
@@ -47,6 +48,7 @@ app.post("/api/submitForm", async (req, res) => {
     });
   }
 });
+
 
 // ✅ Port
 const PORT = process.env.PORT || 8080;
